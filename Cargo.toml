@@ -1,13 +1,12 @@
 [package]
-name = "imgui-examples"
-version = "0.0.23-pre"
+name = "imgui-rs-template"
+version = "0.0.1"
 edition = "2018"
-authors = ["Joonas Javanainen <joonas.javanainen@gmail.com>", "imgui-rs contributors"]
-description = "imgui crate examples"
-homepage = "https://github.com/Gekkio/imgui-rs"
-repository = "https://github.com/Gekkio/imgui-rs"
+authors = ["Ryan1729 <Ryan1729@gmail.com>"]
+description = "imgui crate template"
+homepage = "https://github.com/Ryan1729/imgui-rs-template"
+repository = "https://github.com/Ryan1729/imgui-rs-template"
 license = "MIT/Apache-2.0"
-publish = false
 
 [dependencies]
 app = { path = "./libs/app" }
