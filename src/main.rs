@@ -7,6 +7,7 @@ fn main() {
     imgui_support_gfx::run(
         "Some imgui-rs thing".to_owned(),
         CLEAR_COLOR,
+        app::AppState::new(),
         app::update_and_render,
     );
 }

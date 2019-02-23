@@ -3,7 +3,12 @@ use imgui_gfx_renderer::{Renderer, Shaders};
 use imgui_winit_support;
 use std::time::Instant;
 
-pub fn run<F: FnMut(&Ui) -> bool>(title: String, clear_color: [f32; 4], mut run_ui: F) {
+pub fn run<S, F: FnMut(&Ui, &mut S) -> bool>(
+    title: String,
+    clear_color: [f32; 4],
+    mut app_state: S,
+    mut run_ui: F,
+) {
     use gfx::{self, Device};
     use gfx_window_glutin;
     use glutin;
@@ -132,7 +137,7 @@ pub fn run<F: FnMut(&Ui) -> bool>(title: String, clear_color: [f32; 4], mut run_
         let frame_size = imgui_winit_support::get_frame_size(&window, hidpi_factor).unwrap();
 
         let ui = imgui.frame(frame_size, delta_s);
-        if !run_ui(&ui) {
+        if !run_ui(&ui, &mut app_state) {
             break;
         }
 

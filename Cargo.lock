@@ -289,20 +289,20 @@ dependencies = [
 ]
 
 [[package]]
-name = "imgui-examples"
-version = "0.0.23-pre"
-dependencies = [
- "app 0.1.0",
- "imgui-support-gfx 0.1.0",
-]
-
-[[package]]
 name = "imgui-gfx-renderer"
 version = "0.0.23-pre"
 dependencies = [
  "gfx 0.17.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "imgui 0.0.22 (registry+https://github.com/rust-lang/crates.io-index)",
  "imgui-sys 0.0.22 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "imgui-rs-template"
+version = "0.0.1"
+dependencies = [
+ "app 0.1.0",
+ "imgui-support-gfx 0.1.0",
 ]
 
 [[package]]

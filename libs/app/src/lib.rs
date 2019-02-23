@@ -1,8 +1,18 @@
 use imgui::*;
 
-pub fn update_and_render<'a>(ui: &Ui<'a>) -> bool {
+pub struct AppState {
+    counter: isize,
+}
+
+impl AppState {
+    pub fn new() -> Self {
+        AppState { counter: 0 }
+    }
+}
+
+pub fn update_and_render<'a>(ui: &Ui<'a>, app_state: &mut AppState) -> bool {
     ui.window(im_str!("Hello world"))
-        .size((300.0, 100.0), ImGuiCond::FirstUseEver)
+        .size((300.0, 200.0), ImGuiCond::FirstUseEver)
         .build(|| {
             ui.text(im_str!("Hello world!"));
             ui.text(im_str!("こんにちは世界！"));
@@ -14,6 +24,14 @@ pub fn update_and_render<'a>(ui: &Ui<'a>) -> bool {
                 mouse_pos.0,
                 mouse_pos.1
             ));
+            ui.separator();
+            if ui.button(im_str!("+"), (30.0, 20.0)) {
+                app_state.counter = app_state.counter.wrapping_add(1);
+            }
+            ui.text(im_str!("{}", app_state.counter));
+            if ui.button(im_str!("-"), (30.0, 20.0)) {
+                app_state.counter = app_state.counter.wrapping_sub(1);
+            }
         });
 
     true
