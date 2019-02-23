@@ -25,12 +25,17 @@ pub fn update_and_render<'a>(ui: &Ui<'a>, app_state: &mut AppState) -> bool {
                 mouse_pos.1
             ));
             ui.separator();
-            if ui.button(im_str!("+"), (30.0, 20.0)) {
-                app_state.counter = app_state.counter.wrapping_add(1);
-            }
-            ui.text(im_str!("{}", app_state.counter));
+            let mut offset = 30.0;
             if ui.button(im_str!("-"), (30.0, 20.0)) {
                 app_state.counter = app_state.counter.wrapping_sub(1);
+            }
+            offset += 30.0;
+            ui.same_line(offset);
+            ui.text(im_str!("{}", app_state.counter));
+            offset += 30.0;
+            ui.same_line(offset);
+            if ui.button(im_str!("+"), (30.0, 20.0)) {
+                app_state.counter = app_state.counter.wrapping_add(1);
             }
         });
 
